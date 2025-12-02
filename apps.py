@@ -1,6 +1,9 @@
 from django.apps import AppConfig
 
 
-class ApiConfig(AppConfig):
+class BackendConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
-    name = "api"
+    name = "backend"
+    
+    def ready(self):
+        import backend.signals  # <-- buraya da app adını yaz
